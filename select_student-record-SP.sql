@@ -4,9 +4,9 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
+-- Author:		<Habeeb S.A>
+-- Create date: <25th Oct, 2023>
+-- Description:	<Select all students record>
 -- =============================================
 CREATE PROCEDURE get_studentInfo
 	-- Add the parameters for the stored procedure here
@@ -20,3 +20,5 @@ BEGIN
 	SELECT * FROM studentInfo_tb;
 END
 GO
+
+EXEC get_studentInfo
