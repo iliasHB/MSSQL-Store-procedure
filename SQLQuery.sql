@@ -30,10 +30,18 @@ CREATE TABLE studentDept_tb(
 ALTER TABLE studentDept_tb
 ADD StudentId int; --> Add column to an studentDept_tb table
 
-
+--===========================================
+-->>>> Insert Rescord to table <<<<<<<<<
 INSERT INTO studentInfo_tb (Firstname, Surname, Age, Gender) VALUES ('Habeeb', 'Ayo', 12, 'Male');
-
 INSERT INTO studentDept_tb (StudentId, Department, Teacher_name) VALUES (1, 'Science', 'Mr. John');
+
+--===========================================
+-->>>> Select Rescord to table <<<<<<<<<
+SELECT * FROM studentInfo_tb  --> Select all records
+SELECT * FROM studentInfo_tb WHERE Age = 12  --> Select records where age = 12
+SELECT Firstname, Age FROM studentInfo_tb --> Select all firstname & age records
+SELECT TOP 4 * FROM studentInfo_tb ORDER BY Age ASC --> Select first 4 record orderby age in ascending order
+
 
 
 
