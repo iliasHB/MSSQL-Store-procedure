@@ -26,10 +26,12 @@ CREATE TABLE studentDept_tb(
 	StudentId int FOREIGN KEY REFERENCES studentInfo_tb (StudentId) -->  FOREIGN KEY: provide a show a relationship between two tables
 );
 --===========================================
--->>>> Modify studentDept_tb table <<<<<<<<<
-ALTER TABLE studentDept_tb
-ADD StudentId int; --> Add column to an studentDept_tb table
-
+-->>>> Alter studentDept_tb table <<<<<<<<<
+ALTER TABLE studentInfo_tb --> add, delete and modify a column in the table
+ADD _Date date; --> Add column to an studentInfo_tb table
+ALTER TABLE studentInfo_tb
+DROP COLUMN _Data; --> date column is deleted
+ALTER TABLE studentInfo_tb ALTER COLUMN Age varchar(20); --> Change the datatype of the Age column
 --===========================================
 -->>>> Insert Rescord to table <<<<<<<<<
 INSERT INTO studentInfo_tb (Firstname, Surname, Age, Gender) VALUES ('Habeeb', 'Ayo', 12, 'Male');
