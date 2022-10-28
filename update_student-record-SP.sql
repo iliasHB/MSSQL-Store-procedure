@@ -19,8 +19,8 @@ ALTER PROCEDURE [dbo].[get_studentInfo]
 	@Firstname nvarchar(30),
 	@Surname nvarchar(30),
 	@Age int,
-	@Gender nvarchar(30),
-	@_Date date
+	@Gender nvarchar(30)
+	--@_Date date
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -29,7 +29,7 @@ BEGIN
 
     -- update statements for procedure here
 	UPDATE studentInfo_tb 
-	SET Firstname = @Firstname, Surname = @Surname, Age = @Age, Gender = @Gender, st_Date = @_Date
+	SET Firstname = @Firstname, Surname = @Surname, Age = @Age, Gender = @Gender
 	WHERE StudentId = @StudentId
 END
 
@@ -37,6 +37,6 @@ GO
 
 -->>>> Executing the store procedure <<<--
 ---=== The EXEC statment below can be remove, updating store procedure ===----
-EXEC [get_studentInfo] @StudentId = 1, @Firstname = 'Habeeb', @Surname = 'Soliu', @Age = 72, @Gender = 'Male', @_Date = null
+EXEC [get_studentInfo] @StudentId = 1, @Firstname = 'Habeeb', @Surname = 'Soliu', @Age = 72, @Gender = 'Male' 
 
-
+--@_Date = null
