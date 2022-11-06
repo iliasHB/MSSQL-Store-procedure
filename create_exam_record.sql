@@ -43,12 +43,12 @@ BEGIN
 	SET @stdId = @StudentId;
 	--SET @stdDept = (SELECT Department FROM studentInfo_tb WHERE Department = 'Science')
     -- Insert statements for procedure here
-	--IF @stdId = (SELECT StudentId FROM sci_studentExamScore_tb WHERE StudentId = @StudentId) 
+	--IF @stdId = (SELECT StudentId FROM sci_studentExamScore_tb WHERE StudentId = @StudentId)
 	IF NOT EXISTS (SELECT StudentId FROM sci_studentExamScore_tb WHERE StudentId = @StudentId) 
 		BEGIN  
 		--IF stdDept = (SELECT Department FROM studentInfo_tb WHERE Department = @stdDept)
 			SET @Total_exam_score = (@Mathematics + @Further_math + @English + @Physics + @Chemistry + @Biology + @Agriculture + @Economics);
-			SET @Average_score = AVG(@Total_exam_score);
+			SET @Average_score = @Total_exam_score / 8;
 			INSERT INTO sci_studentExamScore_tb(StudentId, Mathematics, Further_math, English, Physics, Chemistry, Biology, Agriculture, Economics, Total_exam_score, Average_score)
 			VALUES(@StudentId, @Mathematics, @Further_math, @English, @Physics, @Chemistry, @Biology, @Agriculture, @Economics, @Total_exam_score, @Average_score)
 			SET @StudentId = @@IDENTITY

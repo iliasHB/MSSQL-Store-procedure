@@ -7,7 +7,8 @@ DROP DATABASE studentdb;
 --===========================================
 -->>>> Delete table statement <<<<<<<<<
 DROP TABLE studentInfo_tb; 
-DROP TABLE studentDept_tb; 
+DROP TABLE com_studentExamScore_tb; 
+DROP TABLE art_studentExamScore_tb;
 --===========================================
 -->>>> Create studentInfo_tb table <<<<<<<<<
 CREATE TABLE studentInfo_tb (
@@ -50,8 +51,10 @@ CREATE TABLE com_studentExamScore_tb(
 	English int,
 	Economics int,
 	Commerce int,
+	Account int,
 	Biology int,
 	Agriculture int,
+	_Language int,
 	Total_exam_score  int,
 	Average_score int
 );
@@ -66,6 +69,7 @@ CREATE TABLE art_studentExamScore_tb(
 	Fine_art int,
 	Biology int,
 	Agriculture int,
+	_Language int,
 	Total_exam_score  int,
 	Average_score int
 );
