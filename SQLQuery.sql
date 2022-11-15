@@ -9,6 +9,10 @@ DROP DATABASE studentdb;
 DROP TABLE studentInfo_tb; 
 DROP TABLE com_studentExamScore_tb; 
 DROP TABLE art_studentExamScore_tb;
+DROP TABLE sci_studentExamScore_tb;
+DROP TABLE art_studentTestScore_tb;
+DROP TABLE com_studentTestScore_tb;
+DROP TABLE sci_studentTestScore_tb;
 --===========================================
 -->>>> Create studentInfo_tb table <<<<<<<<<
 CREATE TABLE studentInfo_tb (
@@ -29,7 +33,7 @@ CREATE TABLE studentDept_tb(
 	Class_teacher_name varchar(30) NOT NULL,
 	StudentId int FOREIGN KEY REFERENCES studentInfo_tb (StudentId) -->  FOREIGN KEY: provide a show a relationship between two tables
 );
-CREATE TABLE sci_studentExamScore_tb(
+CREATE TABLE sci_studentScore_tb(
 	Id int IDENTITY(1,1) PRIMARY KEY, 
 	StudentId int FOREIGN KEY REFERENCES studentInfo_tb (StudentId), -->  FOREIGN KEY: provide a show a relationship between two tables
 	Mathematics int, 
@@ -40,11 +44,11 @@ CREATE TABLE sci_studentExamScore_tb(
 	Biology int,
 	Agriculture int,
 	Economics int,
-	Total_exam_score  int,
+	Total_test_score  int,
 	Average_score int
 );
 
-CREATE TABLE com_studentExamScore_tb(
+CREATE TABLE com_studentTestScore_tb(
 	Id int IDENTITY(1,1) PRIMARY KEY, 
 	StudentId int FOREIGN KEY REFERENCES studentInfo_tb (StudentId), -->  FOREIGN KEY: provide a show a relationship between two tables
 	Mathematics int,  
@@ -55,11 +59,11 @@ CREATE TABLE com_studentExamScore_tb(
 	Biology int,
 	Agriculture int,
 	_Language int,
-	Total_exam_score  int,
+	Total_test_score  int,
 	Average_score int
 );
 
-CREATE TABLE art_studentExamScore_tb(
+CREATE TABLE art_studentTestScore_tb(
 	Id int IDENTITY(1,1) PRIMARY KEY, 
 	StudentId int FOREIGN KEY REFERENCES studentInfo_tb (StudentId), -->  FOREIGN KEY: provide a show a relationship between two tables
 	Mathematics int,  
@@ -70,7 +74,7 @@ CREATE TABLE art_studentExamScore_tb(
 	Biology int,
 	Agriculture int,
 	_Language int,
-	Total_exam_score  int,
+	Total_test_score  int,
 	Average_score int
 );
 --===========================================
@@ -93,6 +97,8 @@ SELECT * FROM studentInfo_tb  --> Select all records
 SELECT * FROM studentInfo_tb WHERE Age = 12  --> Select records where age = 12
 SELECT Firstname, Age FROM studentInfo_tb --> Select all firstname & age records
 SELECT TOP 4 * FROM studentInfo_tb ORDER BY Age ASC --> Select first 4 record orderby age in ascending order
+
+SELECT DateOfBirth, [dbo].[fn_longDate](_Date)  AS [DATE] FROM studentInfo_tb 
 
 --===========================================
 -->>>> Update Record to table <<<<<<<<<
